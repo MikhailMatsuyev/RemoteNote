@@ -6,13 +6,17 @@
 require_once('gbookrecord.class.php');
 
 define('MAX_RECORDS', 10);
-$db = new PDO('sqlite:gbook.db');
-//$db = new SQLite3('gbook.db');
-//$res     = $db->prepare('SELECT * FROM gbook ORDER BY date DESC');
-//$lastMod = $db->prepare('SELECT MAX(date) AS max_date FROM gbook LIMIT 1');
+
+//$db_path='gbook.db';
+//echo $db_path;
+
+$db_path='d:/gbook.db';
+$db = new PDO("sqlite:$db_path");
+
+
+//$db = new PDO('sqlite:gbook.db');
 $res     = $db->query('SELECT * FROM gbook ORDER BY date DESC');
 $lastMod = $db->query('SELECT MAX(date) AS max_date FROM gbook');
-
 
 $lastMod->setFetchMode(PDO::FETCH_ASSOC);//установим режим выборки
 foreach ($lastMod->fetch() as $key){
@@ -21,12 +25,11 @@ foreach ($lastMod->fetch() as $key){
 
 $records     = array();
 $recordCount = 0;
-//while ($row = $res->fetchArray(SQLITE3_ASSOC)) {
+
 while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
     $records[] = new GBookRecord(
 		$row['id'],
-		$row['author'],
-		$row['email'],
+		$row['postname'],
 		$row['message'],
 		$row['date']
 	);

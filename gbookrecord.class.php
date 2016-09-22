@@ -4,16 +4,14 @@
 class GBookRecord
 {
 	public $id;       // Код записи
-	public $author;   // Автор записи
-	public $email;    // E-mail автора
+	public $postname; // Автор записи
 	public $message;  // Сообщение автора
 	public $date;     // Дата и время сообщения
 
-	public function __construct($id = 0, $author = '', $email = '', $message = '', $date = '')
+	public function __construct($id = 0, $postname = '', $message = '', $date = '')
 	{
 		$this->id      = $id;
-		$this->author  = $author;
-		$this->email   = $email;
+		$this->postname = $postname;
 		$this->message = $message;
 		$this->date    = $this->convertDate2String($date);
 	}

@@ -11,6 +11,9 @@ header('Content-type: text/plain; charset=utf-8');
 header('Cache-Control: no-store, no-cache');
 header('Expires: ' . date('r'));
 
+
+
+
 // Если данные были переданы...
 if ($rawPost) {
 	// Разбор пакета JSON
@@ -18,28 +21,26 @@ if ($rawPost) {
     try
     {
         // Открытие БД
-        $db = new PDO('sqlite:gbook.db');
-        //$db = new SQLite3('gbook.db');
+        $db_path='d:/gbook.db';
 
+        $db = new PDO("sqlite:$db_path");
+        //$db = new PDO('sqlite:gbook.db');
         // Подготовка данных
-        $author = htmlspecialchars($record->author);
-        $email = htmlspecialchars($record->email);
+        $postname = htmlspecialchars($record->postname);
         $message = htmlspecialchars($record->message);
+
+
         $date = time();
 
         // Запрос
-        $query=$db->prepare("INSERT INTO gbook (author, email, message, date) VALUES (?, ?, ?, ?)");
+        $query=$db->prepare("INSERT INTO gbook (postname, message, date) VALUES (?, ?, ?)");
 
-        $query->bindParam(1, $author);
-        $query->bindParam(2, $email);
-        $query->bindParam(3, $message);
-        $query->bindParam(4, $date);
+        $query->bindParam(1, $postname);
+        $query->bindParam(2, $message);
+        $query->bindParam(3, $date);
 
         $query->execute();
-        // VALUES ('$author', '$email', '$message', $date)");
-       // $sql = "INSERT INTO gbook (author, email, message, date)
-         //   VALUES ('$author', '$email', '$message', $date)";
-        //$db->query($sql);
+
     }catch(PDOException $e){
         echo $e->getMessage();
     }
