@@ -11,9 +11,6 @@ header('Content-type: text/plain; charset=utf-8');
 header('Cache-Control: no-store, no-cache');
 header('Expires: ' . date('r'));
 
-
-
-
 // Если данные были переданы...
 if ($rawPost) {
 	// Разбор пакета JSON
@@ -24,7 +21,7 @@ if ($rawPost) {
         $db_path='d:/gbook.db';
 
         $db = new PDO("sqlite:$db_path");
-        //$db = new PDO('sqlite:gbook.db');
+
         // Подготовка данных
         $postname = htmlspecialchars($record->postname);
         $message = htmlspecialchars($record->message);
@@ -61,4 +58,3 @@ if ($rawPost) {
 		)
 	);
 }
-?>

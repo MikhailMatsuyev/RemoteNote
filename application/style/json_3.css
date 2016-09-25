@@ -5,18 +5,18 @@
 
 form label
 {
-	width: 5em;
+
 	display: block;
-	float: left;
+
 }
 form input 
 {
-	width: 38em;
+	display: block;
 }
 
 form textarea
 {
-	width: 45em;
+	display: block;
 }
 
 form button

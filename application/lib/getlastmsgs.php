@@ -1,20 +1,12 @@
 <?php
-/*
-** Скрипт возвращает последние записи в гостевой книге
-*/
 
 require_once('gbookrecord.class.php');
 
 define('MAX_RECORDS', 10);
 
-//$db_path='gbook.db';
-//echo $db_path;
-
 $db_path='d:/gbook.db';
 $db = new PDO("sqlite:$db_path");
 
-
-//$db = new PDO('sqlite:gbook.db');
 $res     = $db->query('SELECT * FROM gbook ORDER BY date DESC');
 $lastMod = $db->query('SELECT MAX(date) AS max_date FROM gbook');
 
@@ -46,4 +38,3 @@ header('Expires: ' . date('r'));
 header('Last-Modified: ' . date('r', $lastMod));
 echo json_encode($records);
 
-?>

@@ -1,0 +1,38 @@
+        <form action="" name="form1">
+            <h1>Удаленный блокнот</h1>
+            <a href="/newnote">Новая заметка</a>
+            <a href="/list">Список заметок</a>
+
+            <br>
+            <p style="color:red;">
+                <?php echo (empty($data["id"])? "-" :
+                    "<a href=/save/$data[id]>
+                    Изменить заметку №:
+                    </a>
+                    <input name='id' value = $data[id]>");
+                ?>
+
+
+            </p>
+                <label for="txtName">Введите название заметки:</label>
+                <input name="txtName" id="txtName" type="text"
+
+                 onkeypress="setTxtNameToLocStor(this.value);"
+                <?php echo "value=".(empty($data["postname"])?"this.value":$data["postname"])?>
+                />
+            </div>
+
+            <div>
+                <label for="txtMessage">Введите заметку:</label>
+
+                <textarea name="txtMessage" id="txtMessage" onkeypress="setTxtMessageToLocStor(this.value);">
+                    <?=$data["message"]?>
+                </textarea>
+
+            </div>
+            <p><input type="submit" onclick="addRecord()"></p>
+        </form>
+
+        <div id="divResult"></div>
+    </body>
+</html>
