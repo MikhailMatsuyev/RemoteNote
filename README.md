@@ -12,7 +12,7 @@ Server saves all posts.
 Requirements:
 PHP 5.6
 JSON
-PHP, JS, JQuery, MVC. 
+PHP, JS, MVC. 
 
 # Блокнот клиент-серверный
 
@@ -31,5 +31,5 @@ PHP, JS, JQuery, MVC.
 PHP 5.6
 
 Формат данных для клиент-серверного обмена JSON
-Имплементация на чистом PHP, JS, JQuery. Архитектура MVC. 
+Имплементация на чистом PHP, JS. Архитектура MVC. 
 Приложение должно запускаться на встроенном веб-сервере php
