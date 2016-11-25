@@ -1,4 +1,20 @@
-# RemoteNote
+# Note client-server (English)
+
+Through interface user can add any posts.
+All text application saves as you typing.
+Previous posts user can edit by click. 
+
+Every post can name, creation date and content various long.
+
+After running application user can see all previous posts. 
+Server saves all posts.
+
+Requirements:
+PHP 5.6
+JSON
+PHP, JS, JQuery, MVC. 
+
+# Блокнот клиент-серверный
 
 Клиент-серверное приложение - записная книжка.
 
@@ -15,5 +31,5 @@
 PHP 5.6
 
 Формат данных для клиент-серверного обмена JSON
-Имплементация на чистом PHP, JS. Архитектура MVC. 
+Имплементация на чистом PHP, JS, JQuery. Архитектура MVC. 
 Приложение должно запускаться на встроенном веб-сервере php
