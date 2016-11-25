@@ -10,9 +10,7 @@ After running application user can see all previous posts.
 Server saves all posts.
 
 Requirements:
-PHP 5.6
-JSON
-PHP, JS, MVC. 
+PHP 5.6, JSON, PHP, JS, MVC. 
 
 # Блокнот клиент-серверный
 
